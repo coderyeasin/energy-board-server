@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.send('Oh! great')
+  res.send('energy statistics')
 })
 
 //Database Connection
@@ -19,9 +19,10 @@ console.log(uri);
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-//REST API
+//RESTFul API
 async function server() {
     try {
+
         await client.connect()
         
         const database = client.db('statistics')
